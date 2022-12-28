@@ -43,26 +43,22 @@ def user_info(username):
     return render_template("index.html", data = username)'''
 
 
+@app.route("/update", methods=["GET","POST"])
+def update_post():
+    my_post[2] = request.form
+    return render_template("create_post.html", data=my_post)
+
+
+
+
 @app.route("/create", methods=["GET","POST"])
 def create_post():
     title = request.form.get("title", False)
     content = request.form.get("content", False)
     published = request.form.get("published", False)
     temp={"title":title, "content":content, "published":published}
-    my_post.append(temp[2])
-    return render_template("create_post.html", data=my_post)
-
-
-
-
-'''@app.route("/create", methods=["GET","POST"])
-def create_post():
-    title = request.form.get("title", False)
-    content = request.form.get("content", False)
-    published = request.form.get("published", False)
-    temp={"title":title, "content":content, "published":published}
     my_post.append(temp)
-    return render_template("create_post.html", data=my_post)'''
+    return render_template("create_post.html", data=my_post)
 
 
 if __name__ == "__main__":
