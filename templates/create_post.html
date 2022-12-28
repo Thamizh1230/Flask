@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask-web server</title>
+    <style>
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+
+        tr:hover{
+            background-color: coral;
+
+                }
+    </style>
+</head>
+
+<body>
+    {{data}}
+    <form action ="#" method="POST">
+        <input type="text" id="title" name="title" placeholder="Title"><br><br>
+        <input type="text" id="content" name="content" placeholder="Content"><br><br>
+        <input type="text" id="published" name="published" placeholder="Published"><br><br>
+        <input type="submit" value="submit"><br><br>
+    </form>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>published</th>
+    
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{i.title}}</td>
+            <td>{{i.content}}</td>
+            <td>{{i.published}}</td>
+        </tr>
+        {% endfor %}
+    
+        
+    
+       </table>
+
+</body>
+</html>
